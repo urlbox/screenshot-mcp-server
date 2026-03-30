@@ -39,6 +39,10 @@ Visit [Urlbox](https://urlbox.com) for more information, and have a read of our 
 }
 ```
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/urlbox-urlbox-mcp-server).
+
 ## Usage
 
 The server provides a `render` tool that can:
