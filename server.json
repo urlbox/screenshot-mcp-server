@@ -1,0 +1,52 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.urlbox/screenshot-mcp-server",
+  "title": "Urlbox",
+  "description": "Screenshots, PDFs, video, markdown and page data from any website, via Urlbox.",
+  "websiteUrl": "https://urlbox.com",
+  "repository": {
+    "url": "https://github.com/urlbox/screenshot-mcp-server",
+    "source": "github"
+  },
+  "version": "2.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.urlbox.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional if your client signs in with OAuth. Otherwise 'Bearer <key>' with a Urlbox organisation API key or project secret key.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@urlbox/screenshot-mcp",
+      "version": "2.0.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "URLBOX_API_KEY",
+          "description": "Urlbox organisation API key (all tools) or project secret key (rendering tools).",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "URLBOX_DOWNLOAD_DIR",
+          "description": "Folder where save_render saves files. Defaults to ~/Downloads.",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}

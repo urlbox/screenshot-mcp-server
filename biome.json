@@ -28,7 +28,7 @@
     }
   },
   "files": {
-    "include": ["src/**/*.ts", "src/**/*.js"],
+    "include": ["src/**/*.ts", "test/**/*.ts"],
     "ignore": ["node_modules", "dist", "build"]
   }
 }
