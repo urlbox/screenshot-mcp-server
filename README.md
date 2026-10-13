@@ -1,8 +1,8 @@
-# Urlbox MCP Server
+# Urlbox Screenshot MCP Server
 
 [![image](urlbox-graphic.jpg)](https://urlbox.com)
 
-Give your AI assistant a real browser. The [Urlbox](https://urlbox.com) MCP server takes screenshots, makes PDFs and videos, extracts HTML, markdown and article text, compares pages, and manages your Urlbox projects, webhooks and usage.
+Give your AI assistant a real browser for website screenshots. The [Urlbox](https://urlbox.com) MCP server takes screenshots, makes PDFs and videos, extracts HTML, markdown and article text, compares pages, and manages your Urlbox projects, webhooks and usage.
 
 ## Use the hosted server (recommended)
 
@@ -11,7 +11,7 @@ Connect your client to `https://api.urlbox.com/mcp`. Nothing to install.
 - **Claude** (claude.ai and desktop): Settings, Connectors, Add custom connector, enter `https://api.urlbox.com/mcp`, then sign in to Urlbox.
 - **ChatGPT**: add a connector with the URL `https://api.urlbox.com/mcp`, then sign in to Urlbox.
 - **Claude Code**: `claude mcp add --transport http urlbox https://api.urlbox.com/mcp`, then run `/mcp` to sign in.
-- **Codex**: `codex mcp add urlbox --url https://api.urlbox.com/mcp --bearer-token-env-var URLBOX_API_KEY`
+- **Codex**: `codex mcp add urlbox --url https://api.urlbox.com/mcp`, then `codex mcp login urlbox` to sign in.
 - **Cursor**: add this to `~/.cursor/mcp.json`:
 
   ```json
