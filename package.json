@@ -1,16 +1,28 @@
 {
   "name": "@urlbox/screenshot-mcp",
-  "version": "1.0.3",
-  "description": "An MCP integration for rendering full-page website screenshots and PDFs using the Urlbox API.",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "version": "2.0.0",
+  "description": "Local stdio bridge to the hosted Urlbox MCP server: screenshots, PDFs, video, markdown and more from any website.",
+  "mcpName": "io.github.urlbox/screenshot-mcp-server",
   "type": "module",
+  "bin": {
+    "screenshot-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "server.json",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
-    "dev": "npm run build && node build/index.js",
-    "lint": "biome lint src/",
-    "lint:fix": "biome lint --write src/",
-    "format": "biome format --write src/"
+    "build": "tsc && node -e \"require('fs').chmodSync('dist/index.js', 0o755)\"",
+    "prepack": "npm run build",
+    "start": "node dist/index.js",
+    "test": "npm run build && vitest run",
+    "lint": "biome lint src/ test/",
+    "lint:fix": "biome lint --write src/ test/",
+    "format": "biome format --write src/ test/"
   },
   "keywords": [
     "mcp",
@@ -24,49 +36,39 @@
     "url to image",
     "url to pdf",
     "full page",
-    "full height"
+    "full height",
+    "model context protocol",
+    "mcp server",
+    "screenshot api"
   ],
   "author": "Urlbox Ltd. <support@urlbox.com>",
-  "bugs": {
-    "url": "https://urlbox.com/support",
-    "email": "support@urlbox.com"
-  },
   "contributors": [
     {
       "name": "Arnold Cubici-Jones",
       "email": "arnold@urlbox.com"
     }
   ],
-  "exports": {
-    ".": {
-      "import": "./build/index.js",
-      "require": "./build/index.js",
-      "default": "./build/index.js"
-    }
-  },
-  "homepage": "https://urlbox.com",
+  "license": "MIT",
+  "homepage": "https://github.com/urlbox/screenshot-mcp-server#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/urlbox/urlbox-mcp-server.git"
+    "url": "git+https://github.com/urlbox/screenshot-mcp-server.git"
   },
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/urlbox/screenshot-mcp-server/issues",
+    "email": "support@urlbox.com"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "readme": "https://github.com/urlbox/urlbox-mcp-server.git",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.5.0",
-    "zod": "^3.24.2"
+    "@modelcontextprotocol/sdk": "^1.32.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "^22.13.4",
-    "typescript": "^5.7.3"
-  },
-  "bin": {
-    "screenshot-mcp": "./build/index.js"
-  },
-  "files": [
-    "build"
-  ]
+    "@types/node": "^20.19.43",
+    "typescript": "^7.0.2",
+    "vitest": "^3.2.7",
+    "zod": "^3.25.76"
+  }
 }
